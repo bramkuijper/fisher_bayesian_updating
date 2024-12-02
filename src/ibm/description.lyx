@@ -1,0 +1,395 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{fourier-otf}
+\usepackage{color}
+\definecolor{slateblue}{RGB}{22,88,143}
+\usepackage{doi}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language british
+\language_package default
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "citecolor=slateblue,linkcolor=slateblue,urlcolor=slateblue"
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style british
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Bayesian updating when sampling mates
+\end_layout
+
+\begin_layout Standard
+Prior distribution,
+ two loci:
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+,
+ which reflect a female's prior estimates of the mean and standard deviation of male ornamentation in the population,
+ these are just free to mutate like any trait,
+ with the constraint that the prior variance 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ can only attain nonnegative values.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's consider the mate-choice process:
+ a female encounters the first mate.
+ The female expresses an evolving threshold,
+ 
+\begin_inset Formula $p$
+\end_inset
+
+,
+ against which to evaluate the mean prior ornament 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+ value.
+ Consequently,
+ the probability of choosing the first mate without assessing that male is then simply by evaluating 
+\begin_inset Formula $p<u_{11}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $u_{11}$
+\end_inset
+
+ is a sample drawn from the normally distributed prior `perceived-ornament' distribution 
+\begin_inset Formula $\mathcal{N}(\mu_{t},\sigma)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Alternatively,
+ when the threshold exceeds the value sampled from the prior 
+\begin_inset Formula $p\geq u_{11}$
+\end_inset
+
+,
+ then the focal female does not immediately choose the first male she encountered.
+ Instead,
+ she goes on to assesss this male,
+ at an assessment cost 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ Assessment of this male makes that the female updates her mean perception of male attractiveness 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ For additional males,
+ also the variance of male ornaments is updated.
+ However,
+ the latter does not happen for the first male to be assessed,
+ as one cannot infer variance from a single data point.
+ This means the mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ (but not yet the variance) is now updated dependent on the trait value 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+ of the first sampled male to a new value.
+ Following eq.
+ [9] in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Luttbeg1996"
+literal "false"
+
+\end_inset
+
+,
+ which describes the probability that the updated estimate of the average male ornament is 
+\begin_inset Formula $\mu$
+\end_inset
+
+ given that the assessed male's ornament is 
+\begin_inset Formula $t_{1}$
+\end_inset
+
+.
+ We then have
+\begin_inset Formula 
+\begin{align}
+\Pr\left(\hat{\mu}=\mu\mid X=t_{1}\right) & =\frac{\Pr\left(\hat{\mu}=\mu,X=t_{1}\right)}{\Pr\left(X=t_{1}\right)}\nonumber \\
+ & =\frac{\Pr\left(X=t_{1}\mid\hat{\mu}=\mu\right)\Pr\left(\hat{\mu}=\mu\right)}{\Pr\left(X=t_{1}\right)}.\label{eq:posterior_implicit}
+\end{align}
+
+\end_inset
+
+Consequently,
+ for normally distributed ornaments,
+ the probability that the average male ornament is now estimated as being 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\hat{\mu}=\mu\mid X=t_{1}\right) & =\frac{\frac{1}{\sigma\sqrt{2\pi}}\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{\left(t_{1}-\mu\right)^{2}}{2\sigma^{2}}-\frac{\left(\mu-\hat{\mu}\right)^{2}}{2\sigma^{2}}\right]}{\frac{1}{\sigma\sqrt{2\pi}}\frac{1}{\sigma\sqrt{2\pi}}\int\exp\left[-\frac{\left(t_{1}-\mu\right)^{2}}{2\sigma^{2}}-\frac{\left(\mu-\hat{\mu}\right)^{2}}{2\sigma^{2}}\right]\mathrm{d}\mu},
+\end{align*}
+
+\end_inset
+
+which eventually yields the equation for the updated posterior mean in perceived ornament sizes of (you don't have to follow all the math):
+\begin_inset Formula 
+\begin{align*}
+\hat{\mu}_{\mathrm{new}} & =\frac{xt_{1}+\hat{\mu}_{\mathrm{old}}\left(1/\rho^{2}\right)}{\left(1/\sigma^{2}\right)+\left(1/\rho^{2}\right)}
+\end{align*}
+
+\end_inset
+
+Note that in contrast to Luttbeg's 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "Luttbeg1996"
+literal "false"
+
+\end_inset
+
+ eq.
+ (9),
+ we have no 
+\begin_inset Formula $\rho^{2}$
+\end_inset
+
+ as the sample variance yet,
+ given that we have yet assessed one individual,
+ so for the first male,
+ we simply use 
+\begin_inset Formula $\rho=\sigma$
+\end_inset
+
+ (i.e.,
+ the prior standard deviation).
+ However,
+ for the second sampled male onwards,
+ the variance in perceived ornaments can be updated based on variance in ornaments that have been experienced so far.
+ We thus have (following eq.
+ [12] from 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Luttbeg1996"
+literal "false"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{align*}
+\rho_{\mathrm{new}}^{2} & =\frac{1}{\left(1/\sigma^{2}\right)+\left(1/q^{2}\right)},
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $q^{2}$
+\end_inset
+
+ is the variance in ornaments of males encountered so far and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ the prior variance.
+ 
+\end_layout
+
+\begin_layout Standard
+Now that distributions are updated,
+ again the female samples a random number 
+\begin_inset Formula $u_{12}$
+\end_inset
+
+ from the normal distribution 
+\begin_inset Formula $\mathcal{N}(\hat{\mu}_{\mathrm{new}},\rho^{2})$
+\end_inset
+
+ while still facing the same male (which has now been assessed),
+ so this assessed male will be chosen when the sampled value exceeds the female preference threshold
+\begin_inset Formula 
+\begin{align*}
+p & <u_{12}.
+\end{align*}
+
+\end_inset
+
+If,
+ however,
+ 
+\begin_inset Formula $p\geq u_{12}$
+\end_inset
+
+ the female goes on to sample another male.
+ Again,
+ she samples a random number 
+\begin_inset Formula $u_{21}$
+\end_inset
+
+ from the normal distribution 
+\begin_inset Formula $\mathcal{N}(\hat{\mu}_{\mathrm{new}},\rho_{\mathrm{new}}^{2})$
+\end_inset
+
+ before assessing the next,
+ second,
+ male.
+ If 
+\begin_inset Formula $p<u_{21}$
+\end_inset
+
+ that male will be chosen without being assessed.
+ If,
+ however,
+ 
+\begin_inset Formula $p\geq u_{21}$
+\end_inset
+
+,
+ then the male will be assessed and posterior means and variances will be updated accordingly,
+ after which another number 
+\begin_inset Formula $u_{22}$
+\end_inset
+
+ will be drawn from the now doubly-updated posterior distribution 
+\begin_inset Formula $\mathcal{N}(\hat{\mu}_{\mathrm{new,new}},\rho_{\mathrm{new,new}}^{2})$
+\end_inset
+
+.
+ Again,
+ if 
+\begin_inset Formula $p<u_{22}$
+\end_inset
+
+ the second male that has been assessed will be chosen,
+ otherwise another male be sampled and the cycle continues until the female has assessed 
+\begin_inset Formula $n_{\mathrm{max}}$
+\end_inset
+
+ males,
+ after which she mates with a randomly chosen male.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "~/Projects/databases/transgenerational"
+options "bram"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
