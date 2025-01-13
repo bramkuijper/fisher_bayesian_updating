@@ -404,7 +404,7 @@ void Choose(Individual &female)
         {
             ++n_mates_assessed;
 
-            posterior_var_inv = 1.0 / posterior_sigma * posterior_sigma;
+            posterior_var_inv = 1.0 / (posterior_sigma * posterior_sigma);
 
             // update estimate based on mean and variance
             // this is eq. (11) of Luttbeg (1996)
@@ -435,6 +435,7 @@ void Choose(Individual &female)
 
             }
 
+            // now sample estimate after assessing male
             estimate = posterior_mean + 
                 sqrt(posterior_variance) * standard_normal(rng_r);
 
